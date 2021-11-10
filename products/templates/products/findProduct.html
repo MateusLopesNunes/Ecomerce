@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Ecommerce paraíso{% endblock %}
+{% block content %}
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mt-2">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Product</li>
+            </ol>
+        </nav>
+        <div class="card">
+            <h4 class="card-header">{{ product.name }}</h4>
+            <div class="card-body">
+                <img src="{{ product.img }}" class="mt-2" style="width: 20rem">
+                <div class="d-flex p-2 bd-highlight">
+                    <h4 class="mt-4">R${{ product.price }}</h4>
+                    <a class="btn btn-success mx-3 h-25 w-25 mt-3">Comprar</a>
+                </div>
+                <div class="accordion mt-3" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Descrição do produto
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p class="card-text">{{ product.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
