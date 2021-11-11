@@ -8,16 +8,16 @@
             <div class="col-sm-4 mt-5">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Autenticação de usuário</h3>
+                        <h3>Registro de usuário</h3>
                     </div>
                     <div class="card-body">
                         <form method="post" class="">
                             {% csrf_token %}
                             <input type="hidden" name="next" value="{{ next }}">
                             {{ form|crispy }}
-                            <button class="btn btn-primary mt-3">Entrar</button>
+                            <button class="btn btn-primary mt-3">Registrar</button>
                         </form>
-                        <a class="page-link mt-2" href="/accounts/register">Registrar</a>
+                        <a class="page-link mt-2" href="/accounts/login">Autenticar</a>
                     </div>
                 </div>
             </div>
