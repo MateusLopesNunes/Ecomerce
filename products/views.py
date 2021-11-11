@@ -3,6 +3,9 @@ from .models import Product, Category
 from django.core.paginator import Paginator
 
 
+def index(request):
+    return render(request, 'products/index.html')
+
 def home(request):
     findAllProducts = Product.objects.all()
     search = request.GET.get('search')
@@ -12,7 +15,7 @@ def home(request):
     page = request.GET.get('page')
     products = paginator.get_page(page)
     categories = Category.objects.all()
-    return render(request, 'products/index.html', {'products': products, 'categories': categories})
+    return render(request, 'products/home.html', {'products': products, 'categories': categories})
 
 def findProduct(request, id):
     product = get_object_or_404(Product, pk=id)

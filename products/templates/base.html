@@ -17,11 +17,21 @@
         <a href="/" class="navbar-brand mx-2">Loja paraíso</a>
         <form class="d-flex">
             <div class="d-flex">
-                <input class="form-control" type="search" name="search" placeholder="Pesquisa de produto"
+                <input class="form-control" style="width: 40rem" type="search" name="search" placeholder="Pesquisa de produto"
                        aria-label="Search">
                 <button class="btn btn-outline-success ms-2" type="submit"><i class="fas fa-search"></i></button>
             </div>
-            <a class="btn btn-primary ms-4"><i class="fas fa-cart-plus"></i></a>
+            <div class="ms-5">
+                <a href="/accounts/login" class="btn btn-primary">
+                    <i class="far fa-user"></i>
+                    {% if user.is_authenticated %}
+                        <span style="color:white;">Seja bem vindo</span>
+                    {% else %}
+                        <span style="color:white;">Faça seu login</span>
+                    {% endif %}
+                </a>
+            </div>
+            <a class="btn btn-success ms-5"><i class="fas fa-cart-plus"></i></a>
         </form>
     </div>
 </nav>
