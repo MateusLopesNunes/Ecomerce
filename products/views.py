@@ -9,9 +9,15 @@ def nav(request):
     return render(request, 'base.html', context)
 
 def filterCategory(request, id):
-    findByCategory = Product.objects.all()
+    findAllProducts = Product.objects.all()
     categories = Category.objects.all()
-    products = findByCategory.filter(category_id=id)
+    products = findAllProducts.filter(category_id=id)
+    search = request.GET.get('search')
+    if search:
+        products = findAllProducts.filter(name__icontains=search)
+    paginator = Paginator(products, 12)
+    page = request.GET.get('page')
+    products = paginator.get_page(page)
     return render(request, 'products/home.html', {'products': products, 'categories': categories})
 
 
