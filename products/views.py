@@ -3,6 +3,18 @@ from .models import Product, Category
 from django.core.paginator import Paginator
 
 
+def nav(request):
+    findAllProducts = Category.objects.all()
+    context = {'categories': findAllProducts}
+    return render(request, 'base.html', context)
+
+def filterCategory(request, id):
+    findByCategory = Product.objects.all()
+    categories = Category.objects.all()
+    products = findByCategory.filter(category_id=id)
+    return render(request, 'products/home.html', {'products': products, 'categories': categories})
+
+
 def index(request):
     return render(request, 'products/index.html')
 

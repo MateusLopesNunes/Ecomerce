@@ -4,17 +4,17 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-2">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/home">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Product</li>
             </ol>
         </nav>
         <div class="card">
             <h4 class="card-header">{{ product.name }}</h4>
             <div class="card-body">
-                <img src="{{ product.img }}" class="mt-2" style="width: 20rem">
+                <img src="{{ product.img }}" class="mt-2 imgProduct">
                 <div class="d-flex p-2 bd-highlight">
                     <h4 class="mt-4">R${{ product.price }}</h4>
-                    <a class="btn btn-success mx-3 h-25 w-25 mt-3">Comprar</a>
+                    <a class="btn btn-success mx-4 mt-3 buttonBuy">Comprar</a>
                 </div>
                 <div class="accordion mt-3" id="accordionExample">
                     <div class="accordion-item">
