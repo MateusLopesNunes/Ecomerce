@@ -29,7 +29,7 @@ def home(request):
     search = request.GET.get('search')
     if search:
         findAllProducts = findAllProducts.filter(name__icontains=search)
-    paginator = Paginator(findAllProducts, 12)
+    paginator = Paginator(findAllProducts, 15)
     page = request.GET.get('page')
     products = paginator.get_page(page)
     categories = Category.objects.all()
